@@ -361,6 +361,21 @@ Add the following method to the `Post` class:
     }
 
 1. If the `toggleLikePost` method is called and a user likes a post, we unlike the post. First by removing the user from the local cache stored in the `likes` property, then by syncing the change with Parse. We remove the user from the local cache by using the `filter` method on the array stored in `likes.value`.
+
+	You might be wondering what `$0` means. This symbol stands shorthand for the first parameter in a closure. The line 
+	>
+	        likes.value = likes.value?.filter { $0 != user }
+	>
+	
+	Is equivalent to:
+	
+	>
+	        likes.value = likes.value?.filter { like in like != user }
+	>
+	
+	Similarly, `$1` would stand for the second parameter, and so on.
+
+
 2. If the user doesn't like the post yet, we add them to the local cache and then synch the change with Parse.
 
 Great! Our changes to the `Post` class are complete. Next, we can make use of our new methods!
