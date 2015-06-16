@@ -173,9 +173,9 @@ Whenever a cell becomes visible, we are required to call the `targetWillDisplayE
 
 **Where can we place the code that calls that method?**
 
-One option would be the `cellForRowAtIndexPath:` method that is called whenever the TableView requests us to create a cell. However, there are some cases where this method is called but the requested cell is not actually displayed - so this solution could lead to some bugs in our app.
+You might be thinking of placing the code in the `cellForRowAtIndexPath:` method that is called whenever the TableView requests us to create a cell. However, we are looking to call this method every time that the user scrolls the cell to into view, not only when the cell is first created.
 
-Instead, there's a method that's part of the `UITableViewDelegate` protocol that is perfect for our purposes:
+There is a method that's part of the `UITableViewDelegate` protocol that is perfect for our purposes:
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
 
