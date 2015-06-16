@@ -203,6 +203,7 @@ Let's set ourselves up as the TableView's delegate. After that we'll initialize 
 > Open _Main.storyboard_ and connect the outlet of the TableView's delegate to the `TimelineViewController`:
 >
 > ![image](table_view_delegate.png)
+> Note that we could have also connected this delegate in our code itself with the `.delegate` attribute
 
 ##Initializing and storing the TimelineComponent
 
